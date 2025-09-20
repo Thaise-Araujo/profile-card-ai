@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thaise Araújo - Perfil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0ABAB5; /* Verde Tiffany */
+            --secondary: #7FFFD4; /* Aquamarine */
+            --accent: #AFEEEE; /* Turquesa pálido */
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+            --card-bg: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(120deg, var(--secondary) 0%, var(--primary) 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .profile-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+        }
+        
+        .profile-header {
+            padding: 40px 30px 20px;
+            background: linear-gradient(to bottom, var(--primary) 0%, rgba(10, 186, 181, 0.1) 100%);
+        }
+        
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 0 auto 15px;
+            display: block;
+        }
+        
+        .profile-name {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+            font-weight: 700;
+        }
+        
+        .profile-title {
+            font-size: 1.1rem;
+            color: var(--dark);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .profile-stats {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 20px 0;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: #777;
+        }
+        
+        .profile-content {
+            padding: 25px 30px;
+        }
+        
+        .profile-bio {
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            color: #444;
+            background: var(--light);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #ddd, transparent);
+            margin: 25px 0;
+        }
+        
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .profile-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .skill {
+            background: var(--accent);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .skill:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .ai-generate-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin: 15px 0 25px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(10, 186, 181, 0.3);
+        }
+        
+        .ai-generate-btn:hover {
+            background: #089690;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(10, 186, 181, 0.4);
+        }
+        
+        .api-info {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 20px;
+            text-align: center;
+            line-height: 1.5;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 600px) {
+            .profile-card {
+                max-width: 100%;
+            }
+            
+            .profile-header {
+                padding: 30px 20px 15px;
+            }
+            
+            .profile-content {
+                padding: 20px;
+            }
+            
+            .profile-stats {
+                gap: 15px;
+            }
+            
+            .ai-generate-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <div class="profile-header">
+            <img src="foto.jpg" 
+                 alt="Foto de Thaise Araújo" class="profile-image" id="profile-image">
+            <h1 class="profile-name" id="profile-name">Thaise Araújo</h1>
+            <p class="profile-title" id="profile-title">Desenvolvedora Front-End</p>
+       
+        
+    
+            
+            <div class="divider"></div>
+            
+            <h3 class="section-title">Habilidades</h3>
+            <div class="profile-skills" id="profile-skills">
+                <span class="skill"><i class="fab fa-html5"></i> HTML</span>
+                <span class="skill"><i class="fab fa-css3-alt"></i> CSS</span>
+                <span class="skill"><i class="fab fa-js"></i> JavaScript</span>
+            </div>
+            
+            <button class="ai-generate-btn" onclick="generateContent()">
+                <i class="fas fa-robot"></i> Gerar com IA
+            </button>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/thaise-araujo1990" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/Thaise-Araujo" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/mt.thaisearaujo?igsh=aXh0b3N2anJkdDdl" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            
+            <p class="api-info">
+                * Esta demonstração simula a integração com APIs de IA. Em um projeto real, 
+                você precisaria de uma chave de API para serviços como DeepSeek, OpenAI, etc.
+            </p>
+        </div>
+    </div>
+
+
+
+    <script>
+        // Função para gerar conteúdo simulado (em um projeto real, isso viria de uma API)
+        function generateContent() {
+            // Nomes e títulos pré-definidos para simular a IA
+            const names = ['Thaise Araújo', 'Thaise Silva', 'Thaise Oliveira', 'Thaise Santos', 'Thaise Lima'];
+            const titles = [
+                'Desenvolvedora Front-End', 
+                'Designer UI/UX', 
+                'Especialista em React', 
+                'Programadora Full-Stack',
+                'Arquiteta de Software'
+            ];
+            const bios = [
+                'Apaixonada por criar experiências web incríveis e acessíveis. Constantemente aprendendo novas tecnologias e frameworks.',
+                'Especialista em design centrado no usuário com foco em interfaces intuitivas e agradáveis.',
+                'Desenvolvedora com experiência em projetos de grande escala e arquiteturas modernas de front-end.',
+                'Profissional multidisciplinar com skills em desenvolvimento front-end e back-end.',
+                'Arquiteta de software com paixão por criar soluções escaláveis e de alto desempenho.'
+            ];
+            const skillsList = [
+                ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js'],
+                ['UI Design', 'UX Research', 'Figma', 'Adobe XD', 'Prototipagem'],
+                ['JavaScript', 'TypeScript', 'React', 'Vue', 'Angular'],
+                ['HTML', 'CSS', 'JavaScript', 'Python', 'PHP', 'MySQL'],
+                ['Arquitetura', 'Design Patterns', 'JavaScript', 'TypeScript', 'AWS']
+            ];
+            
+            // Selecionar aleatoriamente
+            const randomIndex = Math.floor(Math.random() * names.length);
+            
+            // Atualizar o conteúdo da página
+            document.getElementById('profile-name').textContent = names[randomIndex];
+            document.getElementById('profile-title').textContent = titles[randomIndex];
+            document.getElementById('profile-bio').textContent = bios[randomIndex];
+            
+            // Atualizar habilidades
+            const skillsContainer = document.getElementById('profile-skills');
+            skillsContainer.innerHTML = ''; // Limpar habilidades existentes
+            
+            const icons = ['fab fa-html5', 'fab fa-css3-alt', 'fab fa-js', 'fab fa-react', 'fab fa-node-js', 'fab fa-figma', 'fas fa-pencil-ruler', 'fas fa-database'];
+            
+            skillsList[randomIndex].forEach((skill, index) => {
+                const skillElement = document.createElement('span');
+                skillElement.classList.add('skill');
+                
+                const iconElement = document.createElement('i');
+                iconElement.className = icons[index % icons.length];
+                
+                skillElement.appendChild(iconElement);
+                skillElement.appendChild(document.createTextNode(' ' + skill));
+                
+                skillsContainer.appendChild(skillElement);
+            });
+            
+            // Alterar a imagem (usando API de imagens aleatórias - em projeto real seria da IA)
+            document.getElementById('profile-image').src = `https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80&${Math.random()}`;
+        }
+    </script>
+</body>
+</html>
